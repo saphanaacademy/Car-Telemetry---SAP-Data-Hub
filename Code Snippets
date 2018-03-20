@@ -41,4 +41,4 @@ The URL will be
 <your_cal_hostname>:8000/sap/hana/ide/editor/plugin/testtools/odataexplorer/index.html?appName=/TelemetryAnomaly/Telemetry.xsodata
 
 UI5 Application:
-https://anomaly-sdctechmo.dispatcher.hana.ondemand.com/index.html
+https://cartelemetrydashboard-sdctechmo.dispatcher.hana.ondemand.com/index.html
