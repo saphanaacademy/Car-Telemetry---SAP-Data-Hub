@@ -1,0 +1,44 @@
+# Car-Telemetry---SAP-Data-Hub - Code Snippets
+
+SAP Data Hub:
+The URL will be <your_cal_hostname>:9052
+
+SAP Vora Tools:
+The URL will be <your_cal_hostname>:9225
+
+Paste query and execute in SQL Editor
+
+select avg(temperature) as average_brake_temperature , max(battery) as max_battery_voltage ,macaddress
+from "VORA"."CAR_TELEMETRY_EXTRACT" group by macaddress limit 10
+
+SAP Web-based Development Workbench:
+The URL will be <your_cal_hostname>:8000/sap/hana/ide/
+
+SAP Data Hub Modeling:
+The URL will be <your_cal_hostname>:9037/watt/index.html
+
+Paste query and execute in Vora Tools SQL Editor
+
+create view Threshold_Violations as
+SELECT
+"TEMPERATURE",
+"BATTERY",
+"GEAR",
+"RACE",
+"TIMEST",
+"MACADDRESS",
+"MAC",
+"THRES",
+"VENDNAME",
+"MAT",
+CASE WHEN ("TEMPERATURE" - "THRES") < 0 THEN 1 ELSE 0 END as threshold_over_bin
+FROM "VORA"."CAR_TELEMETRY_EXTRACT"
+join "VORA"."CAR_PART_THRESHOLDS"
+on TRIM(' ' FROM "MACADDRESS") = "MAC"
+
+OData Service:
+The URL will be 
+<your_cal_hostname>:8000/sap/hana/ide/editor/plugin/testtools/odataexplorer/index.html?appName=/TelemetryAnomaly/Telemetry.xsodata
+
+UI5 Application:
+https://anomaly-sdctechmo.dispatcher.hana.ondemand.com/index.html
